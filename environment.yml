@@ -1,4 +1,4 @@
-name: pyqtenv
+name: pySideEnv
 channels:
   - defaults
 dependencies:
@@ -13,6 +13,7 @@ dependencies:
   - libstdcxx-ng=9.3.0=hd4cf53a_17
   - ncurses=6.3=h7f8727e_2
   - openssl=1.1.1l=h7f8727e_0
+  - pip=21.2.4=py38h06a4308_0
   - python=3.8.12=h12debd9_0
   - readline=8.1=h27cfd23_0
   - setuptools=58.0.4=py38h06a4308_0
@@ -21,9 +22,4 @@ dependencies:
   - wheel=0.37.0=pyhd3eb1b0_1
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.11=h7f8727e_4
-  - pip:
-    - pip==21.3.1
-    - pyqt6==6.2.2
-    - pyqt6-qt6==6.2.2
-    - pyqt6-sip==13.2.0
-prefix: /home/binulal/.conda/envs/pyqtenv
+prefix: /home/binulal/.conda/envs/pySideEnv

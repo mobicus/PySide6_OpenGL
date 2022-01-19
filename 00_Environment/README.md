@@ -5,11 +5,11 @@ conda activate pySideEnv
 
 Install pyside6 and pyopengl
 
-pip install pyside6==6.0
-pip install numpy
-pip install pandas
-pip install pillow
-pip install pyparsing
-pip install python-dateutil
-pip install pytz
-pip install PyOpenGL PyOpenGL_accelerate
+pip install pyside6==6.0 <br>
+pip install numpy <br>
+pip install pandas <br>
+pip install pillow <br>
+pip install pyparsing <br>
+pip install python-dateutil <br>
+pip install pytz <br>
+pip install PyOpenGL PyOpenGL_accelerate <br>

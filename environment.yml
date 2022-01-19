@@ -1,28 +1,42 @@
 name: pySideEnv
 channels:
+  - conda-forge
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1=main
-  - _openmp_mutex=4.5=1_gnu
-  - ca-certificates=2021.10.26=h06a4308_2
-  - certifi=2021.10.8=py38h06a4308_0
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_llvm
+  - ca-certificates=2021.10.8=ha878542_0
+  - certifi=2021.10.8=py38h578d9bd_1
+  - cx_freeze=6.9=py38h497a2fe_1
+  - importlib-metadata=4.10.0=py38h578d9bd_0
   - ld_impl_linux-64=2.35.1=h7274673_9
   - libffi=3.3=he6710b0_2
-  - libgcc-ng=9.3.0=h5101ec6_17
-  - libgomp=9.3.0=h5101ec6_17
+  - libgcc-ng=11.2.0=h1d223b6_11
   - libstdcxx-ng=9.3.0=hd4cf53a_17
+  - llvm-openmp=12.0.1=h4bd325d_1
   - ncurses=6.3=h7f8727e_2
-  - openssl=1.1.1l=h7f8727e_0
+  - openssl=1.1.1l=h7f98852_0
+  - patchelf=0.14.3=h58526e2_0
   - pip=21.2.4=py38h06a4308_0
   - python=3.8.12=h12debd9_0
+  - python_abi=3.8=2_cp38
   - readline=8.1=h27cfd23_0
   - setuptools=58.0.4=py38h06a4308_0
   - sqlite=3.37.0=hc218d9a_0
   - tk=8.6.11=h1ccaba5_0
   - wheel=0.37.0=pyhd3eb1b0_1
   - xz=5.2.5=h7b6447c_0
+  - zipp=3.7.0=pyhd8ed1ab_0
   - zlib=1.2.11=h7f8727e_4
   - pip:
+    - numpy==1.22.0
+    - pillow==9.0.0
+    - pyopengl==3.1.5
+    - pyopengl-accelerate==3.1.5
+    - pyparsing==3.0.6
     - pyside6==6.0.0
+    - python-dateutil==2.8.2
+    - pytz==2021.3
     - shiboken6==6.0.0
+    - six==1.16.0
 prefix: /home/binulal/.conda/envs/pySideEnv

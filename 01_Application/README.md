@@ -17,3 +17,6 @@ A minimal PySide (Qt for Python) application looks like below: <br>
         # enter ui main loop 
         sys.exit( app.exec_() )
     
+
+This code has no GUI elements. The main loop is executed waiting for user interaction. <br>
+We will add GUI components in the next section.

@@ -12,8 +12,8 @@ We define the vertices using a float32 numpy array.<br>
 ##### Vertex Buffer Object
 PySide6 provides for OpenGL buffers through the [QOpenGLBuffer](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html) class.
 
-        # Create and bind VBO
-        self.vbo = QOpenGLBuffer()
+        # Create and bind VBO, with default type.
+        self.vbo = QOpenGLBuffer(QOpenGLBuffer.VertexBuffer)
         self.vbo.create()
         self.vbo.bind()
         # Allocate VBO with copying in initial data

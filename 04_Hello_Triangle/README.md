@@ -10,6 +10,8 @@ We define the vertices using a float32 numpy array.<br>
                             0.0,  0.5, 0.0 ], dtype=np.float32) 
                             
 ##### Vertex Buffer Object
+PySide6 provides for OpenGL buffers through the [QOpenGLBuffer](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html) class.
+
 
 ##### Vertex Shader
 

@@ -12,4 +12,6 @@ PySide6 provides a QMainWindow class to create Application Main Windows. Here's 
 
 We will subclass QMainWindow; and add it to the QApplication we created.
 
+![window](../images/02_helloWindow.png)
+
 

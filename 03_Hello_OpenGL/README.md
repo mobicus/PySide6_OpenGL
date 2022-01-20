@@ -21,7 +21,7 @@ Please note that [QOpenGLWidget](https://doc.qt.io/qtforpython-6/PySide6/QtOpenG
 
 <img src="../images/helloOpenGL.png" width="400" height="225">
 
-[QSurfaceFormat()](https://doc.qt.io/qtforpython-6/PySide6/QtGui/QSurfaceFormat.html?highlight=qsurfaceformat) helps us manage OpenGL version/profile and request depth/stencil buffers.
+[QSurfaceFormat()](https://doc.qt.io/qtforpython-6/PySide6/QtGui/QSurfaceFormat.html?highlight=qsurfaceformat) helps us manage OpenGL version/profile and request depth/stencil buffers.<br>
 [devicePixelRatio()](https://doc.qt.io/qtforpython-6/PySide6/QtGui/QPaintDevice.html?highlight=devicepixel%20ratio#PySide6.QtGui.PySide6.QtGui.QPaintDevice.devicePixelRatio) maps input coordinates to pixel coordinates. 
 
 ### Additional PySide6 Documentation of interest

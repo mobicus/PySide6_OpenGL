@@ -16,7 +16,8 @@ PySide6 provides for OpenGL buffers through the [QOpenGLBuffer](https://doc.qt.i
         self.vbo = QOpenGLBuffer(QOpenGLBuffer.VertexBuffer)
         self.vbo.create()
         self.vbo.bind()
-        # Allocate VBO with copying in initial data
+        
+        # Allocate VBO, with copying in initial data
         vertices_data = vertices.tobytes()
         # self.vbo.allocate( data_to_initialize , data_size_to_allocate )
         self.vbo.allocate( VoidPtr(vertices_data), 4 * vertices.size )

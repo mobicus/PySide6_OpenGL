@@ -7,7 +7,7 @@ We define the vertices using a float32 numpy array.<br>
     import numpy as np
     vertices = np.array( [ -0.5, -0.5, 0.0,
                             0.5, -0.5, 0.0,
-                            0.0,  0.5, 0.0 ], , dtype=np.float32) 
+                            0.0,  0.5, 0.0 ], dtype=np.float32) 
                             
 ##### Vertex Buffer Object
 

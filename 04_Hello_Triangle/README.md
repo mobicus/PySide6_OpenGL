@@ -12,10 +12,41 @@ We define the vertices using a float32 numpy array.<br>
 ##### Vertex Buffer Object
 PySide6 provides for OpenGL buffers through the [QOpenGLBuffer](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html) class.
 
+        # Create and bind VBO
+        self.vbo = QOpenGLBuffer()
+        self.vbo.create()
+        self.vbo.bind()
+        # Allocate VBO with copying in initial data
+        vertices_data = vertices.tobytes()
+        # self.vbo.allocate( data_to_initialize , data_size_to_allocate )
+        self.vbo.allocate( VoidPtr(vertices_data), 4 * vertices.size )
 
 ##### Vertex Shader
 
+    from textwrap import dedent
+
+    vertexShader = dedent("""
+        #version 330 core
+        layout (location = 0) in vec2 vPosition;
+        
+        void main()
+        {
+            gl_Position = vec4(vPosition.x, vPosition.y, 0.0, 1.0);
+        }
+    """)
+
 ##### Fragment Shader
+    from textwrap import dedent
+
+    fragmentShader = dedent("""
+        #version 330 core
+        out vec4 FragColor;
+        
+        void main()
+        {
+            FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+        } 
+    """)
 
 ##### Shader Program
 

@@ -17,7 +17,7 @@ We should re-implement [three methods](https://doc.qt.io/qtforpython-6/PySide6/Q
  - resizeGL() : called when the widget is resized; and,
  - paintGL() : renders the OpenGL scene 
 
-Please note that [QOpenGLWidget](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html) is not a busy-waiting loop. It is rather an "event-driven" one. New renders through paintGL() happens only when a change in the scene or OpenGL state happens. If there is no change in the scene or OpenGL state, paintGL() is not called. If we want to re-render, we should call the *update()* method.
+Please note that [QOpenGLWidget](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html) is not a busy-waiting loop. It is rather an "event-driven" one. New renders through paintGL() happens only when there is a change in the scene or OpenGL state. If there is no change in the scene or OpenGL state, paintGL() is not called. If we want to force a render, we should call the *update()* method.
 
 <img src="../images/helloOpenGL.png" width="400" height="225">
 

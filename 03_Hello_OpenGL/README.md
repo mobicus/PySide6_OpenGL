@@ -1,9 +1,5 @@
-Widgets have properties and methods; and Qt provides them with two additional sets of "specialized" methods, namely, "signals" and "slots."
-
-A widget can be configured to "emit" a "signal" when one of its properties change.
-And a widget can receive a signal from another widget through one of its "slot" methods when the signal and slot are connected.
-For example, consider a video player. The play button's "clicked" signal is connected to "play()" slot of the video player.
-When the play button is clicked, the video player play()s the video. The pause button's "clicked" signal is connected to "pause()" slot of video player. When the pause button is clicked, the video player pause()s the video.
+### PySide6 support for OpenGL 
+Now that we have a window, we should add a widget (remember, a widget is a GUI component) on which we can render OpenGL.
 
 PySide6 offers three ways to render OpenGL.
 
@@ -11,5 +7,20 @@ PySide6 offers three ways to render OpenGL.
 2. QWindow; and
 3. QOpenGLWindow
 
+QWindow and its convenient class QOpenGLWindow are fast; but should be used in special scenarios.
+QOpenGLWidget is the [recommended](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#alternatives) stable and cross-platform solution. 
 
-QWindow and its convenient class QOpenGLWindow 
+### QOpenGLWidget 
+We will subclass QOpenGLWidget and add it to the MainWindow.
+
+
+### Additional PySide6 Documentation of interest
+Further, the following modules provide for OpenGL support on PySide6: <br>
+1. [PySide6.QtOpenGL](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/index.html#module-PySide6.QtOpenGL)
+2. [PySide6.QtOpenGLWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/index.html#module-PySide6.QtOpenGLWidgets)
+3. PySide6.QtOpenGLFunctions]
+
+We will need to use the following modules often, for GUI related tasks:<br>
+[PySide6.QtWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#module-PySide6.QtWidgets)
+[PySide6.QtGui](https://doc.qt.io/qtforpython-6/PySide6/QtGui/index.html#module-PySide6.QtGui)
+[PySide6.QtCore](https://doc.qt.io/qtforpython-6/PySide6/QtCore/index.html#module-PySide6.QtCore)

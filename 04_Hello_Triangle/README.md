@@ -1,16 +1,16 @@
-Widgets have properties and methods; and Qt provides them with two additional sets of "specialized" methods, namely, "signals" and "slots."
+So far, we created a Window and added an OpenGL widget to it. We also re-implemented the methods we need to render OpenGL. <br>
+Now we try to port the triangle example.<br>
 
-A widget can be configured to "emit" a "signal" when one of its properties change.
-And a widget can receive a signal from another widget through one of its "slot" methods when the signal and slot are connected.
-For example, consider a video player. The play button's "clicked" signal is connected to "play()" slot of the video player.
-When the play button is clicked, the video player play()s the video. The pause button's "clicked" signal is connected to "pause()" slot of video player. When the pause button is clicked, the video player pause()s the video.
+### Vertices
 
-PySide6 offers three ways to render OpenGL.
+### Vertex Buffer Object
 
-1. QOpenGLWidget
-2. QWindow; and
-3. QOpenGLWindow
+### Vertex Shader
 
+### Fragment Shader
 
-QWindow and its convenient class QOpenGLWindow 
+### Shader Program
 
+### Verted Array Objects
+
+### And, the triangle!

@@ -21,6 +21,6 @@ Further, the following modules provide for OpenGL support on PySide6: <br>
 3. PySide6.QtOpenGLFunctions]
 
 We will need to use the following modules often, for GUI related tasks:<br>
-[PySide6.QtWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#module-PySide6.QtWidgets)
-[PySide6.QtGui](https://doc.qt.io/qtforpython-6/PySide6/QtGui/index.html#module-PySide6.QtGui)
-[PySide6.QtCore](https://doc.qt.io/qtforpython-6/PySide6/QtCore/index.html#module-PySide6.QtCore)
+4. [PySide6.QtWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#module-PySide6.QtWidgets)
+5. [PySide6.QtGui](https://doc.qt.io/qtforpython-6/PySide6/QtGui/index.html#module-PySide6.QtGui)
+6. [PySide6.QtCore](https://doc.qt.io/qtforpython-6/PySide6/QtCore/index.html#module-PySide6.QtCore)

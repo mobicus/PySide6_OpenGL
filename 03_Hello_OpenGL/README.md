@@ -18,6 +18,7 @@ We should re-implement [three methods](https://doc.qt.io/qtforpython-6/PySide6/Q
  - paintGL() : renders the OpenGL scene ; and 
  - update() : call this wherenever we need to paintGL() (ie. render an update to the scene.)
 
+<img src="../images/helloOpenGL.png" width="400" height="225">
 The use of QSurfaceFormat() and devicePixelRatio() will be discussed in coming sections. 
 
 ### Additional PySide6 Documentation of interest

@@ -11,13 +11,14 @@ QWindow and its convenient class QOpenGLWindow have better performace; but shoul
 QOpenGLWidget is the [recommended](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#alternatives) stable and cross-platform solution. 
 
 ### QOpenGLWidget 
-We will subclass QOpenGLWidget and add it to the MainWindow.
+We will [subclass QOpenGLWidget](RenderWidget.py) and add it to the [MainWindow](MainWindow.py).
 We should re-implement [three methods](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#detailed-description) of QOpenGLWidget class.
  - initializeGL() : set up OpenGL State
  - resizeGL() : called when the widget is resized
  - paintGL() : renders the OpenGL scene ; and 
  - update() : call this wherenever we need to paintGL() (ie. render an update to the scene.)
 
+The use of QSurfaceFormat() and devicePixelRatio() will be discussed in coming sections. 
 
 ### Additional PySide6 Documentation of interest
 Further, the following modules provide for OpenGL support on PySide6: <br>

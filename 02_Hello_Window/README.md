@@ -14,4 +14,4 @@ We will subclass QMainWindow; and add it to the QApplication we created.
 
 ![window](../images/02_helloWindow.png)
 
-
+<img src="../images/02_helloWindow.png" width="200" height="100">

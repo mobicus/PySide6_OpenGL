@@ -7,11 +7,16 @@ PySide6 offers three ways to render OpenGL.
 2. QWindow; and
 3. QOpenGLWindow
 
-QWindow and its convenient class QOpenGLWindow are fast; but should be used in special scenarios.
+QWindow and its convenient class QOpenGLWindow have better performace; but should be used in special scenarios.
 QOpenGLWidget is the [recommended](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#alternatives) stable and cross-platform solution. 
 
 ### QOpenGLWidget 
 We will subclass QOpenGLWidget and add it to the MainWindow.
+We should re-implement [three methods](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#detailed-description) of QOpenGLWidget class.
+ - initializeGL() : set up OpenGL State
+ - resizeGL() : called when the widget is resized
+ - paintGL() : renders the openGL scene ; and 
+ - update() : call this wherenever we need to paintGL() 
 
 
 ### Additional PySide6 Documentation of interest

@@ -15,8 +15,8 @@ We will subclass QOpenGLWidget and add it to the MainWindow.
 We should re-implement [three methods](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=perspective#detailed-description) of QOpenGLWidget class.
  - initializeGL() : set up OpenGL State
  - resizeGL() : called when the widget is resized
- - paintGL() : renders the openGL scene ; and 
- - update() : call this wherenever we need to paintGL() 
+ - paintGL() : renders the OpenGL scene ; and 
+ - update() : call this wherenever we need to paintGL() (ie. render an update to the scene.)
 
 
 ### Additional PySide6 Documentation of interest

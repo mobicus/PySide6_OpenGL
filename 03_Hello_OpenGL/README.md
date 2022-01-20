@@ -16,11 +16,11 @@ We will subclass QOpenGLWidget and add it to the MainWindow.
 
 ### Additional PySide6 Documentation of interest
 Further, the following modules provide for OpenGL support on PySide6: <br>
-1. [PySide6.QtOpenGL](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/index.html#module-PySide6.QtOpenGL)
-2. [PySide6.QtOpenGLWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/index.html#module-PySide6.QtOpenGLWidgets)
-3. PySide6.QtOpenGLFunctions]
+1. [PySide6.QtOpenGL](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/index.html#module-PySide6.QtOpenGL)<br>
+2. [PySide6.QtOpenGLWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/index.html#module-PySide6.QtOpenGLWidgets)<br>
+3. PySide6.QtOpenGLFunctions] <br>
 
 We will need to use the following modules often, for GUI related tasks:<br>
-4. [PySide6.QtWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#module-PySide6.QtWidgets)
-5. [PySide6.QtGui](https://doc.qt.io/qtforpython-6/PySide6/QtGui/index.html#module-PySide6.QtGui)
-6. [PySide6.QtCore](https://doc.qt.io/qtforpython-6/PySide6/QtCore/index.html#module-PySide6.QtCore)
+4. [PySide6.QtWidgets](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#module-PySide6.QtWidgets) <br>
+5. [PySide6.QtGui](https://doc.qt.io/qtforpython-6/PySide6/QtGui/index.html#module-PySide6.QtGui) <br>
+6. [PySide6.QtCore](https://doc.qt.io/qtforpython-6/PySide6/QtCore/index.html#module-PySide6.QtCore) <br>

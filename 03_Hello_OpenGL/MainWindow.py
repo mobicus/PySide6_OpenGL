@@ -15,8 +15,8 @@ class MainWindow(QMainWindow):
         # set geometry
         self.setGeometry(100, 100, 800, 450)
         # set title
-        self.setWindowTitle("Hello Window")
-        # Add the penGL Widget here
+        self.setWindowTitle("Hello OpenGL")
+        # Add the OpenGL Widget here
         renderWidget = RenderWidget(QSurfaceFormat())
         self.setCentralWidget(renderWidget)
         # <<<

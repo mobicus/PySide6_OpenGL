@@ -81,7 +81,8 @@ Now that we have the VAO, we will setup the Vertex Attributes
         # Release VBO
         self.vbo.release()
 
-Alternatively,
+Alternatively,<br>
+    
         posAttr = self.program.attributeLocation("vPosition")
         self.program.setAttributeBuffer(posAttr, GL.GL_FLOAT, 0, 2)
         self.program.enableAttributeArray(posAttr)

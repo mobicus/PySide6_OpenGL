@@ -1,4 +1,4 @@
-So far, we created a Window and added an OpenGL widget to it. We also added placeholders of methods that we need to render OpenGL. <br>
+So far, we created a Window and added an OpenGL widget to it. We also added placeholders for methods that we need to render the OpenGL state. <br>
 Now we try to port the triangle example.<br>
 
 First, we will implement the [QOpenGLWidget.initializeGL()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=openglwidget#PySide6.QtOpenGLWidgets.PySide6.QtOpenGLWidgets.QOpenGLWidget.initializeGL) method.

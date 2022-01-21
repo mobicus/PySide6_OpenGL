@@ -1,6 +1,10 @@
 So far, we created a Window and added an OpenGL widget to it. We also re-implemented the methods we need to render OpenGL. <br>
 Now we try to port the triangle example.<br>
 
+First, we will implement [QOpenGLWidget.initializeGL()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=openglwidget#PySide6.QtOpenGLWidgets.PySide6.QtOpenGLWidgets.QOpenGLWidget.initializeGL)
+
+Then, we will implement the [QOpenGLWidget.paintGL()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=openglwidget#PySide6.QtOpenGLWidgets.PySide6.QtOpenGLWidgets.QOpenGLWidget.paintGL) method to render the triangle.
+
 ##### Vertices
 We define the vertices using a float32 numpy array.<br>
 

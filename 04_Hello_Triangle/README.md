@@ -68,7 +68,38 @@ The following code creates and binds a [QOpenGLVertexArrayObject](https://doc.qt
 
         self.vao = QOpenGLVertexArrayObject()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-
+        
 ##### Link Vertex Attributes
+Now that we have the VAO, we will setup the Vertex Attributes
+
+        self.program.setAttributeBuffer(0, GL.GL_FLOAT, 0, 2)
+        self.program.enableAttributeArray(0)
+        # Release VBO
+        self.vbo.release()
+
+Alternatively,
+        posAttr = self.program.attributeLocation("vPosition")
+        self.program.setAttributeBuffer(posAttr, GL.GL_FLOAT, 0, 2)
+        self.program.enableAttributeArray(posAttr)
+        # Release VBO
+        self.vbo.release()
+
+That wraps our [QOpenGLWidget.initializeGL()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGLWidgets/QOpenGLWidget.html?highlight=openglwidget#PySide6.QtOpenGLWidgets.PySide6.QtOpenGLWidgets.QOpenGLWidget.initializeGL) method.
+
+No modifications are required for resizeGL() yet.
+Now we will update the paintGL() method to render the triangle.
 
 ##### And, the triangle!
+
+    def paintGL(self):
+        # Draw the scene:
+        f = self.context.functions()
+        f.glClear(GL.GL_COLOR_BUFFER_BIT)
+        # start painting
+        self.program.bind()
+        vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
+        f.glDrawArrays(GL.GL_TRIANGLES, 0, 3)
+        self.program.release()
+
+
+We have NOT used error/exception handling code for brevity.

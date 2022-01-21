@@ -38,6 +38,8 @@ Here, we created and bound a Vertex Buffer Object. The [allocate()](https://doc.
         }
     """)
 
+dedent() removes leading whitespaces; and allows us to present the shader in a more readable way.
+
 ##### Fragment Shader
     from textwrap import dedent
 
@@ -52,6 +54,15 @@ Here, we created and bound a Vertex Buffer Object. The [allocate()](https://doc.
     """)
 
 ##### Shader Program
+[QOpenGLShaderProgram](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=qopenglshaderprogram) can load, compile and link shaders.
+
+        # Load and compile shaders and link program
+        #
+        self.program = QOpenGLShaderProgram(self)
+        self.program.addShaderFromSourceCode(QOpenGLShader.Vertex, vertexShader)
+        self.program.addShaderFromSourceCode(QOpenGLShader.Fragment, fragmentShader)
+        self.program.link()
+
 
 ##### Verted Array Objects
 

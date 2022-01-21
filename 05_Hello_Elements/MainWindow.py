@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         fileMenu = menuBar.addMenu("File")
         fileMenu.addAction(exitAction)
 
-        helpmenu = menuBar.addMenu("Help")
+        helpMenu = menuBar.addMenu("Help")
         infoAction = QAction("Info", self)
         infoAction.setShortcut('Ctrl+I')
         helpMenu.addAction(infoAction)

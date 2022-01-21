@@ -56,26 +56,43 @@ class RenderWidget(QOpenGLWidget):
         #
         # Setup VBO and VAO
         #
-        vertices = np.array( [ -0.5, -0.5, 0.0,
-                                0.5, -0.5, 0.0,
-                                0.0,  0.5, 0.0 ], dtype=np.float32) 
+                
+        vertices = np.array([  0.5,  0.5, 0.0,  # top right
+                               0.5, -0.5, 0.0,  # bottom right
+                              -0.5, -0.5, 0.0,  # bottom left
+                              -0.5,  0.5, 0.0   # top left 
+                             ], dtype=np.float32 )
+        
+        indices = np.array([  # note that we start from 0!
+                              0, 1, 3,   # first triangle
+                              1, 2, 3    # second triangle
+                            ], dtype=np.uint32 )
+        
         # Create and bind VBO
-        self.vbo = QOpenGLBuffer()
+        self.vbo = QOpenGLBuffer(QOpenGLBuffer.VertexBuffer)
         self.vbo.create()
         self.vbo.bind()
-        # Allocate VBO, and copy in data
+        # Allocate VBO with copying in initial data
         vertices_data = vertices.tobytes()
         # self.vbo.allocate( data_to_initialize , data_size_to_allocate )
-        self.vbo.allocate( VoidPtr(vertices_data), 4 * vertices.size )
+        self.vbo.allocate( VoidPtr(vertices_data), (4 * vertices.size) )
+ 
         # Setup VAO
         self.vao = QOpenGLVertexArrayObject()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-        # configure vertex attribute 0
+        # Setup vertex attributes
         self.program.setAttributeBuffer(0, GL.GL_FLOAT, 0, 3)
         self.program.enableAttributeArray(0)
-        # Release VBO
+        # Release VBO. Safe to do so after setAttributeBuffer
         self.vbo.release()
-        vao_binder.release()
+        
+        # create and bind the EBO
+        self.ebo = QOpenGLBuffer(QOpenGLBuffer.IndexBuffer)
+        self.ebo.create()
+        self.ebo.bind()
+        self.indices_data = indices.tobytes()
+        self.ebo.allocate( VoidPtr(self.indices_data), 4 * indices.size )
+        
 
     def resizeGL(self, w, h):
         # Update projection matrix and other size related settings:
@@ -90,7 +107,7 @@ class RenderWidget(QOpenGLWidget):
         # start painting
         self.program.bind()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-        #glPolygonMode(GL_FRONT, GL_FILL);
-        f.glDrawArrays(GL.GL_TRIANGLES, 0, 3)
+        #GL.glPolygonMode(GL.GL_FRONT, GL.GL_FILL);
+        f.glDrawElements(GL.GL_TRIANGLES, 6, GL.GL_UNSIGNED_INT, VoidPtr(0))
         self.program.release()
 

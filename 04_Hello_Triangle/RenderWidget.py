@@ -91,5 +91,4 @@ class RenderWidget(QOpenGLWidget):
         self.program.bind()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
         f.glDrawArrays(GL.GL_TRIANGLES, 0, 3)
-        vao_binder.release()
         self.program.release()

@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         # set geometry
         self.setGeometry(100, 100, 800, 450)
         # set title
-        self.setWindowTitle("Hello OpenGL")
+        self.setWindowTitle("Hello Triangle")
         # Add the OpenGL Widget here
         renderWidget = RenderWidget(QSurfaceFormat())
         self.setCentralWidget(renderWidget)

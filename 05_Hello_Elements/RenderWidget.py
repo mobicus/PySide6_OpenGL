@@ -90,6 +90,7 @@ class RenderWidget(QOpenGLWidget):
         # start painting
         self.program.bind()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
+        #glPolygonMode(GL_FRONT, GL_FILL);
         f.glDrawArrays(GL.GL_TRIANGLES, 0, 3)
         self.program.release()
 

@@ -64,7 +64,7 @@ dedent() removes leading whitespaces; and allows us to present the shader in a m
         self.program.link()
 
 ##### Verted Array Objects
-The following code creates and binds a [QOpenGLVertexArrayObject](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLVertexArrayObject.html). use of QOpenGLVertexArrayObject.Binder() is [recommended](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/Binder.html).
+The following code creates and binds a [QOpenGLVertexArrayObject](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLVertexArrayObject.html). QOpenGLVertexArrayObject.Binder() is [recommended](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/Binder.html) over VAO "create(), bind(), release()" sequence.
 
         self.vao = QOpenGLVertexArrayObject()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)

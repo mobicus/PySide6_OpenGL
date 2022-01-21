@@ -107,6 +107,6 @@ Now we will update the paintGL() method to render the triangle.
         self.program.release()
 
 
-<img src="../images/triangle.png" width="400" height="225">
+<img src="../images/triangle2.png" width="400" height="225">
 
 We have NOT used error/exception handling code for brevity.

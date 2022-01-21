@@ -22,7 +22,7 @@ PySide6 provides for OpenGL buffers through the [QOpenGLBuffer](https://doc.qt.i
         # self.vbo.allocate( data_to_initialize , data_size_to_allocate )
         self.vbo.allocate( VoidPtr(vertices_data), 4 * vertices.size )
 
-Here, we created and bound a Vertex Buffer Object. The [allocate()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLBuffer.allocate) method allocated the requested bytes of space and initializes it with the data provided. We have the data copied into the VBO, now. If we need to copy in more data from a different VoidPtr, allocate() the additional space and, then,  use the [write()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLBuffer.write) method.
+Here, we created and bound a Vertex Buffer Object. The [allocate()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLBuffer.allocate) method allocated the requested bytes of space and initializes it with the data provided. We have the data copied into the VBO, now. To copy in more data from a different VoidPtr, allocate() the additional space and, then,  use the [write()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLBuffer.write) method.
 
 ##### Vertex Shader
 

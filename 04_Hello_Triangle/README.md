@@ -54,7 +54,7 @@ dedent() removes leading whitespaces; and allows us to present the shader in a m
     """)
 
 ##### Shader Program
-[QOpenGLShaderProgram](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=qopenglshaderprogram) can load, compile and link shaders.
+[QOpenGLShaderProgram](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=qopenglshaderprogram) loads, compiles and links shaders.
 
         # Load and compile shaders and link program
         #

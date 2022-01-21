@@ -74,9 +74,9 @@ The following code creates and binds a [QOpenGLVertexArrayObject](https://doc.qt
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
         
 ##### Link Vertex Attributes
-Now that we have the VAO, we will setup the Vertex Attributes
+Now that we have the VAO, we will setup the Vertex Attributes with [QOpenGLShaderProgram.setAttributeBuffer()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=shaderprogram#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLShaderProgram.setAttributeBuffer) and [QOpenGLShaderProgram.enableAttributeArray()](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=shaderprogram#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLShaderProgram.enableAttributeArray)
 
-        self.program.[setAttributeBuffer](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLShaderProgram.html?highlight=shaderprogram#PySide6.QtOpenGL.PySide6.QtOpenGL.QOpenGLShaderProgram.setAttributeBuffer)(0, GL.GL_FLOAT, 0, 2)
+        self.program.setAttributeBuffer(0, GL.GL_FLOAT, 0, 2)
         self.program.enableAttributeArray(0)
         # Release VBO
         self.vbo.release()

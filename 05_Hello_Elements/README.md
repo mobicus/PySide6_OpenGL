@@ -1,11 +1,11 @@
 ##### Vertices and indices
 We define the vertex and index arrays as below:
+
         vertices = np.array([  0.5,  0.5, 0.0,  # top right
                                0.5, -0.5, 0.0,  # bottom right
                               -0.5, -0.5, 0.0,  # bottom left
                               -0.5,  0.5, 0.0   # top left 
                              ], dtype=np.float32 )
-        
         indices = np.array([  # note that we start from 0!
                               0, 1, 3,   # first triangle
                               1, 2, 3    # second triangle

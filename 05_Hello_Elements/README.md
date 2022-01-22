@@ -10,7 +10,7 @@ We define the vertex and index arrays as below:
                               0, 1, 3,   # first triangle
                               1, 2, 3    # second triangle
                             ], dtype=np.uint32 )
-Please note the data types. Both float32 and unit32 take  bytes of storage per element.
+Please note the data types. Both float32 and unit32 take 4 bytes of storage per element.
 
 ##### Element Buffer Objects
 Element Buffer objects provided for by [QOpenGLBuffer](https://doc.qt.io/qtforpython-6/PySide6/QtOpenGL/QOpenGLBuffer.html?highlight=qopenglbuffer#detailed-description) class.

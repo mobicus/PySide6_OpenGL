@@ -86,7 +86,7 @@ class RenderWidget(QOpenGLWidget):
         # Release VBO. Safe to do so after setAttributeBuffer
         self.vbo.release()
         
-        # create and bind the EBO
+        # create and bind the EBO (with an active VAO)
         self.ebo = QOpenGLBuffer(QOpenGLBuffer.IndexBuffer)
         self.ebo.create()
         self.ebo.bind()
@@ -107,7 +107,7 @@ class RenderWidget(QOpenGLWidget):
         # start painting
         self.program.bind()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-        #GL.glPolygonMode(GL.GL_FRONT, GL.GL_FILL);
+        #GL.glPolygonMode(GL.GL_FRONT_AND_BACK, GL.GL_LINE)
         f.glDrawElements(GL.GL_TRIANGLES, 6, GL.GL_UNSIGNED_INT, VoidPtr(0))
         self.program.release()
 

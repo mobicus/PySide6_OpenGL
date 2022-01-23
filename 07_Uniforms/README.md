@@ -15,8 +15,8 @@ To update the color over time, we will use a timer in PySide6 - [QTimer](https:/
 
 PySide6 has an event-driven architecture to invoke its GUI controls aka "widgets." And all Qt6/PySide6 controls/widgets are [QObjects](https://doc.qt.io/qtforpython-6/PySide6/QtCore/QObject.html).
 
-[QObjects](https://doc.qt.io/qtforpython-6/PySide6/QtCore/QObject.html) have two special method constructs - Signals and Slots.
-A signal is a notification from a widget to other widgets. A Slot is a method to receive and act on a signal. We should register signals and slots of interest to us. Our current use case is:
+[QObjects](https://doc.qt.io/qtforpython-6/PySide6/QtCore/QObject.html) have two special method constructs - [Signals and Slots](https://doc.qt.io/qtforpython-6/overviews/signalsandslots.html#signals-slots). A signal is a notification from a widget to other widgets. A Slot is a method to receive and act on a signal. We should register signals and slots of interest to us. Our current use case is:
+
      1. Create a QTimer to emit a "timeout" signal at regular intervals, say 10 milliseconds.
      2. Create a Slot method "updateColor()" within QOpenGLWidget subclass to receive the "timeout" signal
      3. Register or "connect" the "timeout" signal to the "updateColor()" slot.

@@ -22,5 +22,41 @@ PySide6 has an event-driven architecture to invoke its GUI controls aka "widgets
      3. Call QOpenGLWidget.update() from "updateColor()" to re-render.
      4. Register or "connect" the "timeout" signal to the "updateColor()" slot.
 
+The implementation is as below.
+     
+     from PySide6.QtOpenGLWidgets import QOpenGLWidget
+     from PySide6.QtCore import Slot, QTimer
+     
+     import numpy as np
+     
+     class RenderWidget(QOpenGLWidget):
+          def __init__(self, fmt):
+               super().__init__()
+               ...
+               self.timeStep = 0.0
+               self.color = 0.0
+               ...
+               
+          def initializeGL(self):
+               ...
+               # Start timer for color change
+               self.play()
+               
+          @Slot()
+          def updateColor(self):
+               self.timeStep += 0.04
+               self.timeStep %= 6.0
+               green = ( np.sin(self.timeStep) / 2.0  ) + 0.5
+               self.color = green
+               self.update()
+               
+          def play(self):
+               if self.timer is None:
+                    self.timer = QTimer(self)
+                    self.timer.timeout.connect(self.updateColor)
+               if not self.timer.isActive():
+                    self.timer.start(50)
+                    
+                    
 
 

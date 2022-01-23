@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         # set geometry
         self.setGeometry(100, 100, 800, 450)
         # set title
-        self.setWindowTitle("Hello Triangle")
+        self.setWindowTitle("Hello Elements")
         # Create menu
         self.createMenu()
         # Add the OpenGL Widget here

@@ -31,5 +31,8 @@ This is straight forward.
         #GL.glPolygonMode(GL.GL_FRONT_AND_BACK, GL.GL_LINE)
         f.glDrawElements(GL.GL_TRIANGLES, 6, GL.GL_UNSIGNED_INT, VoidPtr(0))
         self.program.release()
-        
- For wireframe, please uncomment the glPolygonMode call.
+
+<img src="../images/elements.png" width="400" height="225">
+
+For wireframe, please uncomment the glPolygonMode call.
+

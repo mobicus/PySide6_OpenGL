@@ -10,24 +10,26 @@ from OpenGL import GL
 import numpy as np
 
 from textwrap import dedent
-
 vertexShader = dedent("""
     #version 330 core
-    layout (location = 0) in vec2 vPosition;
-
+    layout (location = 0) in vec3 vPosition; 
+    layout (location = 1) in vec3 vColor;
+    out vec4 vertexColor;
     void main()
     {
-        gl_Position = vec4(vPosition.x, vPosition.y, 0.0, 1.0);
+        gl_Position = vec4(vPosition, 1.0);
+        vertexColor = vec4(vColor, 1.0);
     }
     """)
 
 fragmentShader = dedent("""
     #version 330 core
+    in vec4 vertexColor;
     out vec4 FragColor;
 
     void main()
     {
-        FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+        FragColor = vertexColor;
     } 
     """)
 
@@ -56,9 +58,13 @@ class RenderWidget(QOpenGLWidget):
         #
         # Setup VBO and VAO
         #
-        vertices = np.array( [ -0.5, -0.5, 0.0,
-                                0.5, -0.5, 0.0,
-                                0.0,  0.5, 0.0 ], dtype=np.float32) 
+        vertices = np.array([
+             #// positions    #// colors
+             0.5, -0.5, 0.0,  1.0, 1.0, 0.0,  # // bottom right
+            -0.5, -0.5, 0.0,  0.0, 1.0, 1.0,  # // bottom left
+             0.0,  0.5, 0.0,  1.0, 0.0, 1.0   # // top 
+        ], dtype=np.float32)
+        
         # Create and bind VBO
         self.vbo = QOpenGLBuffer()
         self.vbo.create()
@@ -67,12 +73,17 @@ class RenderWidget(QOpenGLWidget):
         vertices_data = vertices.tobytes()
         # self.vbo.allocate( data_to_initialize , data_size_to_allocate )
         self.vbo.allocate( VoidPtr(vertices_data), 4 * vertices.size )
+        
         # Setup VAO
         self.vao = QOpenGLVertexArrayObject()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
         # configure vertex attribute 0
-        self.program.setAttributeBuffer(0, GL.GL_FLOAT, 0, 3)
+        # QOpenGLShaderProgram.setAttributeBuffer(location, type, offset, tupleSize[, stride=0])
+        self.program.setAttributeBuffer(0, GL.GL_FLOAT, 0, 3, 6 * vertices.itemsize )
+        self.program.setAttributeBuffer(1, GL.GL_FLOAT, 3 * vertices.itemsize, 3, 6 * vertices.itemsize )
         self.program.enableAttributeArray(0)
+        self.program.enableAttributeArray(1)
+        
         # Release VBO
         self.vbo.release()
         vao_binder.release()

@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QSurfaceFormat
+from PySide6.QtGui import QAction
 
 from RenderWidget import RenderWidget
 
@@ -15,7 +16,9 @@ class MainWindow(QMainWindow):
         # set geometry
         self.setGeometry(100, 100, 800, 450)
         # set title
-        self.setWindowTitle("Hello Triangle")
+        self.setWindowTitle("More Attributes")
+        # Create menu
+        self.createMenu()
         # Add the OpenGL Widget here
         renderWidget = RenderWidget(QSurfaceFormat())
         self.setCentralWidget(renderWidget)
@@ -23,3 +26,16 @@ class MainWindow(QMainWindow):
         # <<<  More UI goes here
         # <<<
         self.show()
+
+    def createMenu(self):
+        """
+        Set up menus for the application
+        """
+        exitAction = QAction("Exit", self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.triggered.connect(self.close)
+
+        menuBar = self.menuBar()
+
+        fileMenu = menuBar.addMenu("File")
+        fileMenu.addAction(exitAction)

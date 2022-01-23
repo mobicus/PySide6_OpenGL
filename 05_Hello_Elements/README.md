@@ -32,7 +32,7 @@ This is straight forward.
         f.glDrawElements(GL.GL_TRIANGLES, 6, GL.GL_UNSIGNED_INT, VoidPtr(0))
         self.program.release()
 
-<img src="../images/elements.png" width="400" height="225">
+<img src="../images/elements2.png" width="400" height="225">
 
 For wireframe, please uncomment the glPolygonMode call.
 

@@ -1,5 +1,5 @@
 ##### QOpenGLWidget.update() Vs. glfwWindowShouldClose(window)
-In the [book](https://learnopengl.com/) the author "!glfwWindowShouldClose(window)" to continously render the scene. But QOpenGLWidget has no such busy waiting loop. It has an event-driven architechture. Whenever we want to render an update to the scene, we call QOpenGLWidget.update(). 
+In the [book](https://learnopengl.com/) the author uses "!glfwWindowShouldClose(window)" to continously execute OpenGL commands to render the scene. But QOpenGLWidget has no such busy waiting loop. It has an event-driven architechture. Whenever we want to render an update to the scene, we call QOpenGLWidget.update(). 
 
 To illustrate the update to a "uniform" shader variable, the [author uses continuous updates to the scene with the vertex colors changed over time.](https://learnopengl.com/Getting-started/Shaders)
 

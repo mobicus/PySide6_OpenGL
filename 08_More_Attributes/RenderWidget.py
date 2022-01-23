@@ -1,7 +1,6 @@
 from PySide6.QtOpenGLWidgets import QOpenGLWidget
-from PySide6.QtOpenGL import QOpenGLBuffer, QOpenGLVertexArrayObject
-from PySide6.QtOpenGL import QOpenGLShader, QOpenGLShaderProgram
-from PySide6.QtCore import Slot, QTimer
+from PySide6.QtOpenGL import (QOpenGLBuffer, QOpenGLVertexArrayObject)
+from PySide6.QtOpenGL import (QOpenGLShader, QOpenGLShaderProgram)
 from PySide6.QtGui import QOpenGLContext
 
 from PySide6.support import VoidPtr
@@ -14,7 +13,7 @@ from textwrap import dedent
 
 vertexShader = dedent("""
     #version 330 core
-    layout (location = 0) in vec2 vPosition; 
+    layout (location = 0) in vec2 vPosition;
 
     void main()
     {
@@ -26,14 +25,11 @@ fragmentShader = dedent("""
     #version 330 core
     out vec4 FragColor;
 
-    uniform  vec4 vertexColor;
-
     void main()
     {
-        FragColor = vertexColor;
+        FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
     } 
     """)
-
 
 class RenderWidget(QOpenGLWidget):
     def __init__(self, fmt):
@@ -42,10 +38,7 @@ class RenderWidget(QOpenGLWidget):
         self.context = QOpenGLContext(self)
         
         self.program = None
-        self.timer = None
-        self.timeStep = 0.0
-        self.color = 0.0
-        # Check if a valid context is created
+        
         if not self.context.create():
             raise Exception("Unable to create GL context")
         
@@ -60,10 +53,6 @@ class RenderWidget(QOpenGLWidget):
         self.program.addShaderFromSourceCode(QOpenGLShader.Vertex, vertexShader)
         self.program.addShaderFromSourceCode(QOpenGLShader.Fragment, fragmentShader)
         self.program.link()
-        #
-        # Color attribute location
-        #
-        self.colorLocation = self.program.uniformLocation("vertexColor")
         #
         # Setup VBO and VAO
         #
@@ -87,8 +76,6 @@ class RenderWidget(QOpenGLWidget):
         # Release VBO
         self.vbo.release()
         vao_binder.release()
-        # Start timer for color change
-        self.play()
 
     def resizeGL(self, w, h):
         # Update projection matrix and other size related settings:
@@ -103,27 +90,6 @@ class RenderWidget(QOpenGLWidget):
         # start painting
         self.program.bind()
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-        # Update the color
-        # f.glUniform4fk(self.colorLocation, 0.0, self.color, 0.0, 0.0)
-        # setUniformValue (location, x, y, z, w)
-        self.program.setUniformValue(self.colorLocation, 0.0, self.color, 0.0, 0.0)
         f.glDrawArrays(GL.GL_TRIANGLES, 0, 3)
         self.program.release()
-
-    @Slot()
-    def updateColor(self):
-        self.timeStep += 0.04
-        self.timeStep %= 6.0
-        green = ( np.sin(self.timeStep) / 2.0  ) + 0.5
-        self.color = green
-        self.update()
-
-    def play(self):
-        if self.timer is None:
-            self.timer = QTimer(self)
-            self.timer.timeout.connect(self.updateColor)
-        if not self.timer.isActive():
-            self.timer.start(50)
-
-    
 

@@ -9,30 +9,6 @@ from OpenGL import GL
 
 import numpy as np
 
-from textwrap import dedent
-vertexShader = dedent("""
-    #version 330 core
-    layout (location = 0) in vec3 vPosition; 
-    layout (location = 1) in vec3 vColor;
-    out vec4 vertexColor;
-    void main()
-    {
-        gl_Position = vec4(vPosition, 1.0);
-        vertexColor = vec4(vColor, 1.0);
-    }
-    """)
-
-fragmentShader = dedent("""
-    #version 330 core
-    in vec4 vertexColor;
-    out vec4 FragColor;
-
-    void main()
-    {
-        FragColor = vertexColor;
-    } 
-    """)
-
 class RenderWidget(QOpenGLWidget):
     def __init__(self, fmt):
         super().__init__()
@@ -52,8 +28,8 @@ class RenderWidget(QOpenGLWidget):
         # Load and compile shaders; and link program
         #
         self.program = QOpenGLShaderProgram(self)
-        self.program.addShaderFromSourceCode(QOpenGLShader.Vertex, vertexShader)
-        self.program.addShaderFromSourceCode(QOpenGLShader.Fragment, fragmentShader)
+        self.program.addShaderFromSourceFile(QOpenGLShader.Vertex, "vertexShader.glsl")
+        self.program.addShaderFromSourceFile(QOpenGLShader.Fragment, "fragmentShader.glsl")
         self.program.link()
         #
         # Setup VBO and VAO

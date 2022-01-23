@@ -3,11 +3,11 @@ In the [book](https://learnopengl.com/) the author "!glfwWindowShouldClose(windo
 
 To illustrate the update to a "uniform" shader variable, the [author uses continuous updates to the scene with the vertex colors changed over time.](https://learnopengl.com/Getting-started/Shaders)
 
-  float timeValue = glfwGetTime();
-  float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-  int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-  glUseProgram(shaderProgram);
-  glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+     float timeValue = glfwGetTime();
+     float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+     int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+     glUseProgram(shaderProgram);
+     glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
   
 To update the color over time, we will use a timer in PySide6 - [QTimer](https://doc.qt.io/qtforpython-6/PySide6/QtCore/QTimer.html). And once the color is updated, we will QOpenGLWidget.update() to render the new color.
 

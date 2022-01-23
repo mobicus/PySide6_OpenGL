@@ -18,8 +18,9 @@ PySide6 has an event-driven architecture to invoke its GUI controls aka "widgets
 [QObjects](https://doc.qt.io/qtforpython-6/PySide6/QtCore/QObject.html) have two special method constructs - [Signals and Slots](https://doc.qt.io/qtforpython-6/overviews/signalsandslots.html#signals-slots). A signal is a notification from a widget to other widgets. A Slot is a method to receive and act on a signal. We should register signals and slots of interest to us. Our current use case is:
 
      1. Create a QTimer to emit a "timeout" signal at regular intervals, say 10 milliseconds.
-     2. Create a Slot method "updateColor()" within QOpenGLWidget subclass to receive the "timeout" signal
-     3. Register or "connect" the "timeout" signal to the "updateColor()" slot.
+     2. Create a Slot method "updateColor()" within QOpenGLWidget subclass to receive the "timeout" signal and update the color.
+     3. Call QOpenGLWidget.update() from "updateColor()" to re-render.
+     4. Register or "connect" the "timeout" signal to the "updateColor()" slot.
 
 
 

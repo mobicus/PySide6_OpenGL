@@ -80,11 +80,14 @@ class RenderWidget(QOpenGLWidget):
         # Release VBO
         self.vbo.release()
         
-        # Setup texture
-        self.texture = QOpenGLTexture(QImage("../images/container.jpg").mirrored())
-        self.texture.setMinificationFilter(QOpenGLTexture.LinearMipMapLinear)
-        self.texture.setMagnificationFilter(QOpenGLTexture.Linear)
-
+        # Setup texture1
+        self.texture1 = QOpenGLTexture(QImage("../images/container.jpg").mirrored())
+        self.texture1.setMinificationFilter(QOpenGLTexture.LinearMipMapLinear)
+        self.texture1.setMagnificationFilter(QOpenGLTexture.Linear)
+        # Setup texture2
+        self.texture2 = QOpenGLTexture(QImage("../images/awesomeface.png").mirrored())
+        self.texture2.setMinificationFilter(QOpenGLTexture.LinearMipMapLinear)
+        self.texture2.setMagnificationFilter(QOpenGLTexture.Linear)
 
     def resizeGL(self, w, h):
         # Update projection matrix and other size related settings:
@@ -99,14 +102,20 @@ class RenderWidget(QOpenGLWidget):
         # start painting
         # Bind program
         self.program.bind()
+        # Setup texture locations
+        tex1 = self.program.uniformLocation("vTexture1")
+        self.program.setUniformValue(tex1, 0)
+        tex2 = self.program.uniformLocation("vTexture2")
+        self.program.setUniformValue(tex2, 1)
         # Bind VAO
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
-        # Bind textrue
-        self.texture.bind()
-        # Draw
+        
+        # bind textures
+        self.texture1.bind(0)
+        self.texture2.bind(1)
         f.glDrawElements(GL.GL_TRIANGLES, 6, GL.GL_UNSIGNED_INT, VoidPtr(0))
-        # Release texture
-        self.texture.release()
+        self.texture1.release()
+        self.texture2.release()
         # Release program
         self.program.release()
 

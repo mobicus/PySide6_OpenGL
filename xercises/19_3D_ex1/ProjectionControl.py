@@ -40,6 +40,6 @@ class ProjectionControl(QWidget):
         aspectSelect = QComboBox(self)
         aspectSelect.addItem(self.tr("4:3"))
         aspectSelect.addItem(self.tr("16:9"))
-        aspectSelect.currentIndexChanged(self.aspectRatioChanged)
+        aspectSelect.currentIndexChanged.connect(self.aspectRatioChanged)
         layout.addWidget(aspectSelect, 1, 1, alignment=Qt.AlignTop)
         

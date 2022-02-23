@@ -24,6 +24,13 @@ class RenderWidget(QOpenGLWidget):
         self.timer = None
         self.FoV = 45.0
         
+        self.viewX = 0.0
+        self.viewY = 0.0
+        self.viewZ = -3.0
+
+        self.xAspect = 16.0
+        self.yAspect = 9.0
+        
         if not self.context.create():
             raise Exception("Unable to create GL context")
         
@@ -160,10 +167,10 @@ class RenderWidget(QOpenGLWidget):
         projection = self.program.uniformLocation("projection")
         
         M_view  = QMatrix4x4()
-        M_view.translate( 0.0, 0.0, -3.0 )
+        M_view.translate( self.viewX, self.viewY, self.viewZ )
 
         M_projection = QMatrix4x4()
-        M_projection.perspective( self.FoV, 16.0 / 9.0, 0.1, 100.0)
+        M_projection.perspective( self.FoV, self.xAspect / self.yAspect, 0.1, 100.0)
                 
         # Bind VAO
         vao_binder = QOpenGLVertexArrayObject.Binder(self.vao)
@@ -193,6 +200,7 @@ class RenderWidget(QOpenGLWidget):
     @Slot(int)
     def updateFoV(self, fov):
         self.FoV = float(fov)
+        self.update()
     
     @Slot()
     def updateAngle(self):
@@ -209,3 +217,29 @@ class RenderWidget(QOpenGLWidget):
         if not self.timer.isActive():
                 self.timer.start(10)
 
+    @Slot()
+    def updateViewX(self, x):
+        self.viewX = float(x)
+        self.update()
+
+    @Slot()
+    def updateViewY(self, y):
+        self.viewY = float(y)
+        self.update()
+
+    @Slot()
+    def updateViewZ(self, z):
+        self.viewZ = float(z)
+        self.update()
+    
+    @Slot()
+    def updateAspectRatio(self, aspect):
+        if( aspect == 0):
+            self.xAspect = float(4.0)
+            self.yAspect = float(3.0)
+        else:
+            self.xAspect = float(16.0)
+            self.yAspect = float(9.0)
+        self.update()
+
+    
